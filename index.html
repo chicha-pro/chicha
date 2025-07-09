@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaurya Blocks</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Montserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            shaurya blocks Ltd
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="image-container">
+        <img src="cabro.png" alt="cabro image" class="full-page-img">
+        <div class="hero-text">Welcome to Shaurya Blocks</div>
+    </div>
+
+    <div class="card-section">
+        <div class="card">Card One</div>
+        <div class="card">Card Two</div>
+        <div class="card">Card Three</div>
+    </div>
+
+    <div class="content">
+        <h2>About Shaurya Blocks</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+        <p>More content here to make the page scrollable...</p>
+        <p style="height: 100vh;"></p>
+    </div>
+
+    <footer>
+        <p>© 2023 Shaurya Blocks. All rights reserved.</p>
+    </footer>
+
+    <script>
+    window.addEventListener('scroll', function() {
+        // Hero fade out
+        const container = document.querySelector('.image-container');
+        const img = document.querySelector('.full-page-img');
+        const text = document.querySelector('.hero-text');
+        let scrollY = window.scrollY;
+        let fade = Math.max(1 - scrollY / (window.innerHeight / 2), 0);
+        container.style.opacity = fade;
+        img.style.opacity = fade;
+        text.style.opacity = fade;
+        text.style.transform = `translate(-50%, calc(-50% - ${scrollY / 8}px))`;
+
+        // Card scroll-in animation
+        document.querySelectorAll('.card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 60) {
+                card.classList.add('visible');
+            }
+        });
+    });
+    // Trigger on load
+    window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
