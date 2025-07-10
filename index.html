@@ -13,9 +13,9 @@
         <div class="navbar">
             shaurya blocks Ltd
             <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </header>
@@ -26,45 +26,131 @@
     </div>
 
     <div class="card-section">
-        <div class="card">Card One</div>
-        <div class="card">Card Two</div>
-        <div class="card">Card Three</div>
+        <div class="card">
+            <h3>Quality Cabro Blocks</h3>
+            <p>
+                We manufacture durable, eco-friendly cabro blocks in a variety of colors and patterns, perfect for driveways, walkways, and commercial spaces.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Expert Installation</h3>
+            <p>
+                Our experienced team ensures professional installation, from site preparation to finishing, guaranteeing a long-lasting and beautiful result.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Customer Support</h3>
+            <p>
+                We provide personalized service, free consultations, and after-sales support to help you choose and maintain the best paving solutions.
+            </p>
+        </div>
     </div>
 
-    <div class="content">
-        <h2>About Shaurya Blocks</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
-        <p>More content here to make the page scrollable...</p>
-        <p style="height: 100vh;"></p>
-    </div>
+    <section class="about-timeline">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2015</h4>
+                    <p>Shaurya Blocks Ltd is founded with a vision to revolutionize paving solutions in Kenya.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2017</h4>
+                    <p>Launched our eco-friendly cabro block line, setting new standards for sustainability.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2020</h4>
+                    <p>Expanded operations nationwide and completed 500+ successful projects.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2024</h4>
+                    <p>Introduced smart paving solutions and digital project tracking for clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-facts">
+        <h2>Fun Facts</h2>
+        <div class="facts-grid">
+            <div class="fact-card">
+                <span class="fact-number" data-count="500">0</span>
+                <span class="fact-label">Projects Completed</span>
+            </div>
+            <div class="fact-card">
+                <span class="fact-number" data-count="100">0</span>
+                <span class="fact-label">Happy Clients</span>
+            </div>
+            <div class="fact-card">
+                <span class="fact-number" data-count="20">0</span>
+                <span class="fact-label">Team Members</span>
+            </div>
+            <div class="fact-card">
+                <span class="fact-number" data-count="10">0</span>
+                <span class="fact-label">Awards Won</span>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>© 2023 Shaurya Blocks. All rights reserved.</p>
     </footer>
 
     <script>
-    window.addEventListener('scroll', function() {
-        // Hero fade out
-        const container = document.querySelector('.image-container');
-        const img = document.querySelector('.full-page-img');
-        const text = document.querySelector('.hero-text');
-        let scrollY = window.scrollY;
-        let fade = Math.max(1 - scrollY / (window.innerHeight / 2), 0);
-        container.style.opacity = fade;
-        img.style.opacity = fade;
-        text.style.opacity = fade;
-        text.style.transform = `translate(-50%, calc(-50% - ${scrollY / 8}px))`;
+    // Animate hero image and text on page load
+    window.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.full-page-img').classList.add('visible');
+        document.querySelector('.hero-text').classList.add('visible');
+    });
 
-        // Card scroll-in animation
-        document.querySelectorAll('.card').forEach(card => {
-            const rect = card.getBoundingClientRect();
+    // Animate cards, timeline, facts on scroll
+    function animateOnScroll(selector) {
+        document.querySelectorAll(selector).forEach(el => {
+            const rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 60) {
-                card.classList.add('visible');
+                el.classList.add('visible');
             }
         });
+    }
+    window.addEventListener('scroll', function() {
+        animateOnScroll('.card');
+        animateOnScroll('.timeline-item');
+        animateOnScroll('.fact-card');
     });
-    // Trigger on load
     window.dispatchEvent(new Event('scroll'));
+
+    // Fun Facts Counter Animation
+    function animateCounters() {
+        document.querySelectorAll('.fact-number').forEach(el => {
+            if (el.classList.contains('counted')) return;
+            const rect = el.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 60) {
+                el.classList.add('counted');
+                let count = 0;
+                const target = +el.getAttribute('data-count');
+                const increment = Math.ceil(target / 60);
+                const update = () => {
+                    count += increment;
+                    if(count > target) count = target;
+                    el.textContent = count;
+                    if(count < target) requestAnimationFrame(update);
+                };
+                update();
+            }
+        });
+    }
+    window.addEventListener('scroll', animateCounters);
+    animateCounters();
     </script>
 </body>
 </html>

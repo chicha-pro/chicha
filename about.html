@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Shaurya Blocks</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Montserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            shaurya blocks Ltd
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Shaurya Blocks</h1>
+        <p>
+            Shaurya Blocks Ltd is a leader in innovative construction solutions, specializing in high-quality cabro blocks and paving products. Our mission is to build a stronger, more beautiful tomorrow—one block at a time.
+        </p>
+    </section>
+
+    <section class="about-cards">
+        <div class="about-card">
+            <h3>Our Mission</h3>
+            <p>Delivering durable, eco-friendly, and aesthetically pleasing paving solutions for every project, big or small.</p>
+        </div>
+        <div class="about-card">
+            <h3>Our Vision</h3>
+            <p>To be the most trusted name in the industry, known for quality, innovation, and customer satisfaction.</p>
+        </div>
+        <div class="about-card">
+            <h3>Why Choose Us?</h3>
+            <p>Expertise, reliability, and a passion for excellence—backed by years of experience and a dedicated team.</p>
+        </div>
+    </section>
+
+    <section class="about-team">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO">
+                <h4>Kishore Vaghji</h4>
+                <span>Founder & CEO</span>
+            </div>
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="COO">
+                <h4>Vanita Kishore</h4>
+                <span>Lead Engineer</span>
+            </div>
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Engineer">
+                <h4>Khushil Kishore</h4>
+                <span>Head Of IT</span>
+            </div>
+            <div class="team-member">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Designer">
+                <h4>Vanita Kishore</h4>
+                <span>Product Designer</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 Shaurya Blocks. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function animateOnScroll(selector) {
+        document.querySelectorAll(selector).forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', function() {
+        animateOnScroll('.about-card');
+        animateOnScroll('.team-member');
+    });
+    window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
