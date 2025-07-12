@@ -2,10 +2,9 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: capitalize;
+    font-family:volkhov;
+    text-transform:capitalize;
 }
-
 body {
     background-color: #f3e6f5;
 }
@@ -21,6 +20,7 @@ body {
     color: #D3B1C2;
     font-size: 1.2rem;
     padding: 0 5vw;
+    font-family: pacifico;
 }
 
 .nav-links {
@@ -64,7 +64,7 @@ body {
 .image-container {
     position: relative;
     width: 100vw;
-    height: 60vh;
+    height: 90vh;
     min-height: 320px;
     max-height: 600px;
     overflow: hidden;
@@ -84,9 +84,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 2.5rem;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-size: 4.5rem;
+    font-family: pacifico, Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-shadow: 0 4px 24px rgba(0,0,0,0.7), 0 1px 0 #fff;
     letter-spacing: 2px;
@@ -129,7 +129,7 @@ body {
         background 0.35s,
         opacity 0.5s;
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(90px);
     margin: 10px 0;
     padding: 24px 18px 18px 18px;
     word-break: break-word;
@@ -159,7 +159,7 @@ body {
 .card:hover {
     transform: translateY(-12px) scale(1.04);
     box-shadow: 0 16px 48px rgba(97,54,89,0.18), 0 3px 12px rgba(97,54,89,0.12);
-    background: #f3e6f5;
+    background: #C197D2;
     color: #3a1d2c;
 }
 
@@ -360,7 +360,7 @@ footer {
 .about-card:hover {
     transform: translateY(-12px) scale(1.04) rotate(-2deg);
     box-shadow: 0 16px 48px rgba(97,54,89,0.18), 0 3px 12px rgba(97,54,89,0.12);
-    background: #f3e6f5;
+    background: #C197D2;
 }
 .about-card h3 {
     color: #613659;
@@ -599,7 +599,7 @@ footer {
 .team-member:hover {
     transform: scale(1.06) rotate(1deg);
     box-shadow: 0 8px 32px rgba(97,54,89,0.14);
-    background: #f3e6f5;
+    background: #C197D2;
 }
 .team-member img {
     width: 60px;
@@ -617,6 +617,7 @@ footer {
 .team-member span {
     color: #3a1d2c;
     font-size: 0.95rem;
+   
 }
 
 /* Responsive for mobile */
